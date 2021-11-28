@@ -139,6 +139,7 @@ buffedweapons.MouseButton1Down:connect(function()
 	b = require(gun2)
 	c = require(gun3)
 	b.AutoFire = true
+	b.FireRate = 0.1
 	c.AutoFire = true
 	a.Bullets = 25
 	b.Bullets = 25
