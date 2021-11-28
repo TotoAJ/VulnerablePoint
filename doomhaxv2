@@ -20,7 +20,7 @@ local loaddex = Instance.new("TextButton")
 --Properties:
 
 ScreenGui.Name = "DoomHaxV2GUI"
-ScreenGui.Parent = game:GetService("CoreGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ResetOnSpawn = false
 
 main.Name = "main"
