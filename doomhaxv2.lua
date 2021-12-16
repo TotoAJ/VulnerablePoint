@@ -7,7 +7,7 @@ local UserInputService = game:GetService("UserInputService")
 
 -- Instances:
 
-local ScreenGui = Instance.new("ScreenGui")
+local DHScreenGUI = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
 local label = Instance.new("TextLabel")
 local getweapons = Instance.new("TextButton")
@@ -19,12 +19,12 @@ local loaddex = Instance.new("TextButton")
 
 --Properties:
 
-ScreenGui.Name = "DoomHaxV2GUI"
-ScreenGui.Parent = game:GetService("CoreGui")
-ScreenGui.ResetOnSpawn = false
+DHScreenGUI.Name = "DoomHaxV2GUI"
+DHScreenGUI.Parent = game:GetService("CoreGui")
+DHScreenGUI.ResetOnSpawn = false
 
 main.Name = "main"
-main.Parent = ScreenGui
+main.Parent = DHScreenGUI
 main.AnchorPoint = Vector2.new(0.5, 0.5)
 main.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
 main.BorderSizePixel = 0
@@ -175,6 +175,6 @@ end)
 
 UserInputService.InputBegan:Connect(function(InputKey)
 	if InputKey.KeyCode == Enum.KeyCode.F8 then
-		ScreenGui:Destroy()
+		DHScreenGUI:Destroy()
 	end
 end)
