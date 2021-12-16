@@ -3,7 +3,7 @@
 
 -- Services:
 
-local UserInputSevice = game:GetService("UserInputService")
+local UserInputService = game:GetService("UserInputService")
 
 -- Instances:
 
@@ -173,7 +173,7 @@ loaddex.MouseButton1Down:connect(function()
 	loadstring(game:HttpGet("https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4"))()
 end)
 
-UserInputSevice.InputBegan:Connect(function(InputKey)
+UserInputService.InputBegan:Connect(function(InputKey)
 	if InputKey.KeyCode == Enum.KeyCode.F8 then
 		ScreenGui:Destroy()
 	end
