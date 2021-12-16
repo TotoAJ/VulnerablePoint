@@ -1,4 +1,4 @@
-# ROBLOX-Scripts
+# ROBLOX Exploiting Scripts
 Roblox exploiting scripts.
  
 Use an executor such as Synapse X ($20 USD) or KRNL (Free).
