@@ -26,8 +26,8 @@ function playerEsp()
 	highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
 
 	for i,v in pairs(Players:GetChildren()) do
-		repeat wait() until v.Character ~= nil
-		if v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+		repeat wait() until v:FindFirstChild("Character") ~= nil
+		if v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 			local highlightClone = highlight:Clone()
 			highlightClone.Adornee = v.Character
 			highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
@@ -36,8 +36,8 @@ function playerEsp()
 	end
 
 	Players.ChildAdded:Connect(function(player) 
-		repeat wait() until player.Character ~= nil
-		if player.Character ~= nil and player.Character:FindFirstChild("HumanoidRootPart") ~= nil and not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+		repeat wait() until player:FindFirstChild("Character") ~= nil
+		if player.Character:FindFirstChild("HumanoidRootPart") ~= nil and not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 			local highlightClone = highlight:Clone()
 			highlightClone.Adornee = player.Character
 			highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
@@ -53,8 +53,8 @@ function playerEsp()
 
 	RunService.Heartbeat:Connect(function()
 		for i,v in pairs(Players:GetChildren()) do
-			repeat wait() until v.Character ~= nil
-			if v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+			repeat wait() until v:FindFirstChild("Character") ~= nil
+			if v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 				local highlightClone = highlight:Clone()
 				highlightClone.Adornee = v.Character
 				highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
@@ -74,8 +74,8 @@ function npcEsp()
 	highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
 
 	for i,v in pairs(Actors:GetChildren()) do
-		repeat wait() until v.Character ~= nil
-		if (not v.Name) == 'NPC0' and v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+		repeat wait() until v:FindFirstChild("Character") ~= nil
+		if v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 			local highlightClone = highlight:Clone()
 			highlightClone.Adornee = v.Character
 			highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
@@ -84,8 +84,8 @@ function npcEsp()
 	end
 
 	Actors.ChildAdded:Connect(function(player) 
-		repeat wait() until player.Character ~= nil
-		if (not player.Name) == 'NPC0' and player.Character ~= nil and player.Character:FindFirstChild("HumanoidRootPart") ~= nil and not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+		repeat wait() until player:FindFirstChild("Character") ~= nil
+		if player.Character:FindFirstChild("HumanoidRootPart") ~= nil and not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 			local highlightClone = highlight:Clone()
 			highlightClone.Adornee = player.Character
 			highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
@@ -101,8 +101,8 @@ function npcEsp()
 
 	RunService.Heartbeat:Connect(function()
 		for i,v in pairs(Actors:GetChildren()) do
-			repeat wait() until v.Character  ~= nil
-			if (not v.Name) == 'NPC0' and v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+			repeat wait() until v:FindFirstChild("Character") ~= nil
+			if v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 				local highlightClone = highlight:Clone()
 				highlightClone.Adornee = v.Character
 				highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
