@@ -59,7 +59,7 @@ function playerEsp()
 				highlightClone.Adornee = v.Character
 				highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
 				highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				task.wait()
+				wait()
 			end
 		end
 	end)
@@ -107,7 +107,7 @@ function npcEsp()
 				highlightClone.Adornee = v.Character
 				highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
 				highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				task.wait()
+				wait()
 			end
 		end
 	end)
