@@ -16,6 +16,7 @@ function infAmmo()
 		end
 	end)
 end
+local coroutine_1 = coroutine.create(infAmmo)
 
 function playerEsp()
 	local Players = game:GetService("Players")
@@ -64,6 +65,7 @@ function playerEsp()
 		end
 	end)
 end
+local coroutine_2 = coroutine.create(playerEsp)
 
 function npcEsp()
 	local Actors = workspace.Level.Actors
@@ -112,6 +114,7 @@ function npcEsp()
 		end
 	end)
 end
+local coroutine_3 = coroutine.create(npcEsp)
 
 function loopWalk()
 	local RunService = game:GetService("RunService")
@@ -121,10 +124,6 @@ function loopWalk()
 		game:GetService("Players").LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = enabled[4]
 	end)
 end
-
-local coroutine_1 = coroutine.create(infAmmo)
-local coroutine_2 = coroutine.create(playerEsp)
-local coroutine_3 = coroutine.create(npcEsp)
 local coroutine_4 = coroutine.create(loopWalk)
 
 for i,v in pairs(enabled) do
