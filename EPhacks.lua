@@ -28,7 +28,7 @@ function playerEsp()
 	highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
 
 	for i,v in pairs(Players:GetChildren()) do
-		repeat wait() until v:FindFirstChild("Character") ~= nil
+		repeat coroutine.yield() until v:FindFirstChild("Character") ~= nil
 		if v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 			local highlightClone = highlight:Clone()
 			highlightClone.Adornee = v.Character
@@ -38,7 +38,7 @@ function playerEsp()
 	end
 
 	Players.ChildAdded:Connect(function(player) 
-		repeat wait() until player:FindFirstChild("Character") ~= nil
+		repeat coroutine.yield() until player:FindFirstChild("Character") ~= nil
 		if player.Character:FindFirstChild("HumanoidRootPart") ~= nil and not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 			local highlightClone = highlight:Clone()
 			highlightClone.Adornee = player.Character
@@ -55,13 +55,13 @@ function playerEsp()
 
 	RunService.Heartbeat:Connect(function()
 		for i,v in pairs(Players:GetChildren()) do
-			repeat wait() until v:FindFirstChild("Character") ~= nil
+			repeat coroutine.yield() until v:FindFirstChild("Character") ~= nil
 			if v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 				local highlightClone = highlight:Clone()
 				highlightClone.Adornee = v.Character
 				highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
 				highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				wait()
+				coroutine.yield()
 			end
 		end
 	end)
@@ -76,7 +76,7 @@ function npcEsp()
 	highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
 
 	for i,v in pairs(Actors:GetChildren()) do
-		repeat wait() until v:FindFirstChild("Character") ~= nil
+		repeat coroutine.yield() until v:FindFirstChild("Character") ~= nil
 		if v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 			local highlightClone = highlight:Clone()
 			highlightClone.Adornee = v.Character
@@ -86,7 +86,7 @@ function npcEsp()
 	end
 
 	Actors.ChildAdded:Connect(function(player) 
-		repeat wait() until player:FindFirstChild("Character") ~= nil
+		repeat coroutine.yield() until player:FindFirstChild("Character") ~= nil
 		if player.Character:FindFirstChild("HumanoidRootPart") ~= nil and not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 			local highlightClone = highlight:Clone()
 			highlightClone.Adornee = player.Character
@@ -103,13 +103,13 @@ function npcEsp()
 
 	RunService.Heartbeat:Connect(function()
 		for i,v in pairs(Actors:GetChildren()) do
-			repeat wait() until v:FindFirstChild("Character") ~= nil
+			repeat coroutine.yield() until v:FindFirstChild("Character") ~= nil
 			if v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 				local highlightClone = highlight:Clone()
 				highlightClone.Adornee = v.Character
 				highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
 				highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				wait()
+				coroutine.yield()
 			end
 		end
 	end)
