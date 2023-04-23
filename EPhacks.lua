@@ -122,5 +122,5 @@ function routine_4()
 end
 
 for i,v in pairs(enabled) do
-	if v then pcall(coroutine.wrap(i)) end
+	if v then loadstring("pcall(coroutine.wrap("..i.."))")() end
 end
