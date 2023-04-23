@@ -4,7 +4,7 @@ local enabled = {
 	true, -- Infinite Ammo
 	true, -- Player ESP
 	true, -- NPC ESP
-	40 -- LoopWalk (Set to 0 for false)
+	30 -- LoopWalk (Set to 0 for false)
 }
 
 function routine_1()
