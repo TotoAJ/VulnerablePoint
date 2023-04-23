@@ -8,18 +8,15 @@ local enabled = {
 }
 
 function routine_1()
-	local RunService = game:GetService("RunService")
-
-	RunService.Heartbeat:Connect(function()
+	while wait(1) do
 		for i,v in pairs(game.Players.LocalPlayer.Status.Ammo:GetChildren()) do
 			v.Value = 200
 		end
-	end)
+	end
 end
 
 function routine_2()
-	local Players = game:GetService("Players")
-	local RunService = game:GetService("RunService")
+	local Players = workspace.Level.Players
 	local highlight = Instance.new("Highlight")
 	highlight.Name = "Highlight"
 	highlight.FillColor = Color3.fromRGB(85, 255, 255)
@@ -51,7 +48,7 @@ function routine_2()
 		end
 	end)
 
-	RunService.Heartbeat:Connect(function()
+	while wait(1) do
 		for i,v in pairs(Players:GetChildren()) do
 			repeat wait(0.5) until v:FindFirstChild("Character") ~= nil
 			if v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
@@ -61,12 +58,11 @@ function routine_2()
 				highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 			end
 		end
-	end)
+	end
 end
 
 function routine_3()
 	local Actors = workspace.Level.Actors
-	local RunService = game:GetService("RunService")
 	local highlight = Instance.new("Highlight")
 	highlight.Name = "Highlight"
 	highlight.FillColor = Color3.fromRGB(85, 255, 255)
@@ -98,7 +94,7 @@ function routine_3()
 		end
 	end)
 
-	RunService.Heartbeat:Connect(function()
+	while wait(1) do
 		for i,v in pairs(Actors:GetChildren()) do
 			repeat wait(0.5) until v:FindFirstChild("Character") ~= nil
 			if v.Character:FindFirstChild("HumanoidRootPart") ~= nil and not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
@@ -108,17 +104,15 @@ function routine_3()
 				highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 			end
 		end
-	end)
+	end
 end
 
 function routine_4()
-	local RunService = game:GetService("RunService")
-
-	RunService.Heartbeat:Connect(function()
+	while wait() do
 		if enabled["routine_4"] > 0 then
 			game:GetService("Players").LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = enabled["routine_4"]
 		end
-	end)
+	end
 end
 
 for i,v in pairs(enabled) do
