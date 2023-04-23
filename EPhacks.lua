@@ -124,16 +124,16 @@ end
 for i,v in pairs(enabled) do
 	if v then
 		if i == 1 then
-			infAmmo()
+			pcall(infAmmo)
 		end
 		if i == 2 then
-			playerEsp()
+			pcall(playerEsp)
 		end
 		if i == 3 then
-			npcEsp()
+			pcall(npcEsp)
 		end
 		if i == 4 and v > 0 then
-			loopWalk(v)
+			pcall(loopWalk, v)
 		end
 	end
 end
