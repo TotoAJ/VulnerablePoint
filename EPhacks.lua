@@ -7,7 +7,7 @@ local enabled = {
 	40 -- LoopWalk (Set to 0 for false)
 }
 
-local function routine_1()
+function routine_1()
 	local RunService = game:GetService("RunService")
 
 	RunService.Heartbeat:Connect(function()
@@ -16,9 +16,8 @@ local function routine_1()
 		end
 	end)
 end
-local coroutine_1 = coroutine.create(routine_1)
 
-local function routine_2()
+function routine_2()
 	local Players = game:GetService("Players")
 	local RunService = game:GetService("RunService")
 	local highlight = Instance.new("Highlight")
@@ -65,9 +64,8 @@ local function routine_2()
 		end
 	end)
 end
-local coroutine_2 = coroutine.create(routine_2)
 
-local function routine_3()
+function routine_3()
 	local Actors = workspace.Level.Actors
 	local RunService = game:GetService("RunService")
 	local highlight = Instance.new("Highlight")
@@ -114,9 +112,8 @@ local function routine_3()
 		end
 	end)
 end
-local coroutine_3 = coroutine.create(routine_3)
 
-local function routine_4()
+function routine_4()
 	local RunService = game:GetService("RunService")
 
 	RunService.Heartbeat:Connect(function()
@@ -124,21 +121,20 @@ local function routine_4()
 		game:GetService("Players").LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = enabled[4]
 	end)
 end
-local coroutine_4 = coroutine.create(routine_4)
 
 for i,v in pairs(enabled) do
 	if v then
 		if i == 1 then
-			pcall(coroutine.resume(coroutine_1))
+			pcall(coroutine.wrap(routine_1)())
 		end
 		if i == 2 then
-			pcall(coroutine.resume(coroutine_2))
+			pcall(coroutine.wrap(routine_2)())
 		end
 		if i == 3 then
-			pcall(coroutine.resume(coroutine_3))
+			pcall(coroutine.wrap(routine_3)())
 		end
 		if i == 4 then
-			pcall(coroutine.resume(coroutine_4))
+			pcall(coroutine.wrap(routine_4)())
 		end
 	end
 end
