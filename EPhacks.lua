@@ -7,7 +7,7 @@ local enabled = {
 	40 -- LoopWalk (Set to 0 for false)
 }
 
-function infAmmo()
+local routine_1 = function()
 	local RunService = game:GetService("RunService")
 
 	RunService.Heartbeat:Connect(function()
@@ -16,9 +16,9 @@ function infAmmo()
 		end
 	end)
 end
-local coroutine_1 = coroutine.create(infAmmo)
+local coroutine_1 = coroutine.create(routine_1())
 
-function playerEsp()
+local routine_2 = function()
 	local Players = game:GetService("Players")
 	local RunService = game:GetService("RunService")
 	local highlight = Instance.new("Highlight")
@@ -65,9 +65,9 @@ function playerEsp()
 		end
 	end)
 end
-local coroutine_2 = coroutine.create(playerEsp)
+local coroutine_2 = coroutine.create(routine_2())
 
-function npcEsp()
+local routine_3 = function()
 	local Actors = workspace.Level.Actors
 	local RunService = game:GetService("RunService")
 	local highlight = Instance.new("Highlight")
@@ -114,9 +114,9 @@ function npcEsp()
 		end
 	end)
 end
-local coroutine_3 = coroutine.create(npcEsp)
+local coroutine_3 = coroutine.create(routine_3())
 
-function loopWalk()
+local routine_4 = function()
 	local RunService = game:GetService("RunService")
 
 	RunService.Heartbeat:Connect(function()
@@ -124,7 +124,7 @@ function loopWalk()
 		game:GetService("Players").LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = enabled[4]
 	end)
 end
-local coroutine_4 = coroutine.create(loopWalk)
+local coroutine_4 = coroutine.create(routine_4())
 
 for i,v in pairs(enabled) do
 	if v then
