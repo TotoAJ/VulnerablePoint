@@ -4,7 +4,7 @@ local enabled = {
 	routine_1 = true, -- Infinite Ammo
 	routine_2 = true, -- Player ESP
 	routine_3 = true, -- NPC ESP
-	routine_4 = 30    -- LoopWalk (Set to 0 for false)
+	routine_4 = 0    -- LoopWalk (Set to 0 for false)
 }
 
 function routine_1()
@@ -46,7 +46,7 @@ function routine_2()
 	end)
 
 	Players.ChildRemoved:Connect(function(playerRemoved)
-		if playerRemoved.Character ~= nil and playerRemoved.Character:FindFirstChild("HumanoidRootPart") ~= nil and playerRemoved:FindFirstChild("HumanoidRootPart") and playerRemoved.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") ~= nil then
+		if playerRemoved:FindFirstChild("Character") ~= nil and playerRemoved.Character:FindFirstChild("HumanoidRootPart") ~= nil and playerRemoved:FindFirstChild("HumanoidRootPart") and playerRemoved.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") ~= nil then
 			playerRemoved.Character:FindFirstChild("HumanoidRootPart").Highlight:Destroy()
 		end
 	end)
@@ -94,7 +94,7 @@ function routine_3()
 	end)
 
 	Actors.ChildRemoved:Connect(function(playerRemoved)
-		if playerRemoved.Character ~= nil and playerRemoved.Character:FindFirstChild("HumanoidRootPart") ~= nil and playerRemoved:FindFirstChild("HumanoidRootPart") and playerRemoved.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") ~= nil then
+		if playerRemoved:FindFirstChild("Character") ~= nil and playerRemoved.Character:FindFirstChild("HumanoidRootPart") ~= nil and playerRemoved:FindFirstChild("HumanoidRootPart") and playerRemoved.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") ~= nil then
 			playerRemoved.Character:FindFirstChild("HumanoidRootPart").Highlight:Destroy()
 		end
 	end)
