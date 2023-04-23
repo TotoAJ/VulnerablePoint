@@ -16,6 +16,8 @@ function infAmmo()
 		end
 	end)
 end
+local coroutine_1 = coroutine.create(infAmmo)
+coroutine.resume(coroutine_1)
 
 function playerEsp()
 	local Players = game:GetService("Players")
@@ -113,27 +115,33 @@ function npcEsp()
 	end)
 end
 
-function loopWalk(speed)
+function loopWalk()
 	local RunService = game:GetService("RunService")
 
 	RunService.Heartbeat:Connect(function()
-		game:GetService("Players").LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = speed
+		if enabled[4] <= 0 then return end
+		game:GetService("Players").LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = enabled[4]
 	end)
 end
+
+local coroutine_1 = coroutine.create(infAmmo)
+local coroutine_2 = coroutine.create(playerEsp)
+local coroutine_3 = coroutine.create(npcEsp)
+local coroutine_4 = coroutine.create(loopWalk)
 
 for i,v in pairs(enabled) do
 	if v then
 		if i == 1 then
-			pcall(infAmmo)
+			pcall(coroutine.resume(coroutine_1))
 		end
 		if i == 2 then
-			pcall(playerEsp)
+			pcall(coroutine.resume(coroutine_2))
 		end
 		if i == 3 then
-			pcall(npcEsp)
+			pcall(coroutine.resume(coroutine_3))
 		end
-		if i == 4 and v > 0 then
-			pcall(loopWalk, v)
+		if i == 4 then
+			pcall(coroutine.resume(coroutine_4))
 		end
 	end
 end
