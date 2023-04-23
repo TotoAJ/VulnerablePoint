@@ -1,11 +1,10 @@
 -- Made by TotoAJ
 
-local enabled = {
-	true, -- Infinite Ammo
-	true, -- Player ESP
-	true, -- NPC ESP
-	30 -- LoopWalk (Set to 0 for false)
-}
+local enabled = {}
+enabled["routine_1"] = true -- Infinite Ammo
+enabled["routine_2"] = true -- Player ESP
+enabled["routine_3"] = true -- NPC ESP
+enabled["routine_4"] = 30 -- LoopWalk (Set to 0 for false)
 
 function routine_1()
 	local RunService = game:GetService("RunService")
@@ -123,18 +122,5 @@ function routine_4()
 end
 
 for i,v in pairs(enabled) do
-	if v then
-		if i == 1 then
-			pcall(coroutine.wrap(routine_1))
-		end
-		if i == 2 then
-			pcall(coroutine.wrap(routine_2))
-		end
-		if i == 3 then
-			pcall(coroutine.wrap(routine_3))
-		end
-		if i == 4 then
-			pcall(coroutine.wrap(routine_4))
-		end
-	end
+	if v then pcall(coroutine.wrap(i)) end
 end
