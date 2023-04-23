@@ -3,7 +3,8 @@
 local enabled = {
 	true, -- Infinite Ammo
 	true, -- Player ESP
-	true -- NPC ESP
+	true, -- NPC ESP
+	40 -- LoopWalk (Set to 0 for false)
 }
 
 function infAmmo()
@@ -112,6 +113,14 @@ function npcEsp()
 	end)
 end
 
+function loopWalk(speed)
+	local RunService = game:GetService("RunService")
+	
+	RunService.Heartbeat:Connect(function()
+		game:GetService("Players").LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = speed
+	end)
+end
+
 for i,v in pairs(enabled) do
 	if v then
 		if i == 1 then
@@ -122,6 +131,9 @@ for i,v in pairs(enabled) do
 		end
 		if i == 3 then
 			npcEsp()
+		end
+		if i > 0 then
+			loopWalk(v)
 		end
 	end
 end
