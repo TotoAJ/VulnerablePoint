@@ -16,8 +16,6 @@ function infAmmo()
 		end
 	end)
 end
-local coroutine_1 = coroutine.create(infAmmo)
-coroutine.resume(coroutine_1)
 
 function playerEsp()
 	local Players = game:GetService("Players")
