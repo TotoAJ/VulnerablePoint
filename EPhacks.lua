@@ -117,8 +117,9 @@ function routine_4()
 	local RunService = game:GetService("RunService")
 
 	RunService.Heartbeat:Connect(function()
-		if enabled["routine_4"] <= 0 then return end
-		game:GetService("Players").LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = enabled["routine_4"]
+		if enabled["routine_4"] > 0 then
+			game:GetService("Players").LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = enabled["routine_4"]
+		end
 	end)
 end
 
