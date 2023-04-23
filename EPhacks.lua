@@ -132,7 +132,7 @@ for i,v in pairs(enabled) do
 		if i == 3 then
 			npcEsp()
 		end
-		if i > 0 then
+		if i == 4 and v > 0 then
 			loopWalk(v)
 		end
 	end
