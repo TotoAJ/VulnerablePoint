@@ -10,7 +10,7 @@ local enabled = {
 function routine_1()
 	while wait(1) do
 		for i,v in pairs(game.Players.LocalPlayer.Status.Ammo:GetChildren()) do
-			v.Value = v.Cap.Value
+			v.Value = 200
 		end
 	end
 end
@@ -110,7 +110,7 @@ end
 function routine_4()
 	while wait() do
 		if enabled["routine_4"] > 0 then
-			game:GetService("Players").LocalPlayer.Character:WaitForChild('Humanoid').WalkSpeed = enabled["routine_4"]
+			game:GetService("Players").LocalPlayer:WaitForChild("Character"):WaitForChild('Humanoid').WalkSpeed = enabled["routine_4"]
 		end
 	end
 end
