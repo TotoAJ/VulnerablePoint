@@ -6,23 +6,17 @@ local enabled = {
 	true -- NPC ESP
 }
 
-if enabled[1] == true then
-	--[[
-		Infinite ammo script for Vulnerable Point
-	]]--
+function infAmmo()
+	local RunService = game:GetService("RunService")
 
-	while wait(1) do
+	RunService.Heartbeat:Connect(function()
 		for i,v in pairs(game.Players.LocalPlayer.Status.Ammo:GetChildren()) do
 			v.Value = 200
 		end
-	end
+	end)
 end
-if enabled[2] == true then
-	--[[
-		Player ESP script
-		Made by: TotoAJ
-	]]--
 
+function playerEsp()
 	local Players = game:GetService("Players")
 	local RunService = game:GetService("RunService")
 	local highlight = Instance.new("Highlight")
@@ -30,8 +24,7 @@ if enabled[2] == true then
 	highlight.FillColor = Color3.fromRGB(85, 255, 255)
 	highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
 
-
-	for i,v in pairs(Players:GetPlayers()) do
+	for i,v in pairs(Players:GetChildren()) do
 		repeat wait() until v.Character
 		if not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 			local highlightClone = highlight:Clone()
@@ -41,7 +34,7 @@ if enabled[2] == true then
 		end
 	end
 
-	Players.PlayerAdded:Connect(function(player) 
+	Players.ChildAdded:Connect(function(player) 
 		repeat wait() until player.Character
 		if not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 			local highlightClone = highlight:Clone()
@@ -51,14 +44,14 @@ if enabled[2] == true then
 		end
 	end)
 
-	Players.PlayerRemoving:Connect(function(playerRemoved)
+	Players.ChildRemoved:Connect(function(playerRemoved)
 		if playerRemoved:FindFirstChild("HumanoidRootPart") then
 			playerRemoved.Character:FindFirstChild("HumanoidRootPart").Highlight:Destroy()
 		end
 	end)
 
-	while wait(1) do
-		for i,v in pairs(Players:GetPlayers()) do
+	RunService.Heartbeat:Connect(function()
+		for i,v in pairs(Players:GetChildren()) do
 			repeat wait() until v.Character
 			if not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
 				local highlightClone = highlight:Clone()
@@ -68,21 +61,16 @@ if enabled[2] == true then
 				task.wait()
 			end
 		end
-	end
+	end)
 end
-if enabled[3] == true then
-	--[[
-    	NPC ESP script for Vulnerable Point
-    	Made by: TotoAJ
-	]]--
 
+function npcEsp()
 	local Actors = workspace.Level.Actors
 	local RunService = game:GetService("RunService")
 	local highlight = Instance.new("Highlight")
 	highlight.Name = "Highlight"
 	highlight.FillColor = Color3.fromRGB(85, 255, 255)
 	highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
-
 
 	for i,v in pairs(Actors:GetChildren()) do
 		repeat wait() until v.Character
@@ -110,7 +98,7 @@ if enabled[3] == true then
 		end
 	end)
 
-	while wait(1) do
+	RunService.Heartbeat:Connect(function()
 		for i,v in pairs(Actors:GetChildren()) do
 			repeat wait() until v.Character
 			if not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
@@ -120,6 +108,20 @@ if enabled[3] == true then
 				highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 				task.wait()
 			end
+		end
+	end)
+end
+
+for i,v in pairs(enabled) do
+	if v then
+		if i == 1 then
+			infAmmo()
+		end
+		if i == 2 then
+			playerEsp()
+		end
+		if i == 3 then
+			npcEsp()
 		end
 	end
 end
