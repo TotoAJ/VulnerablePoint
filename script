@@ -149,7 +149,7 @@ function npc_esp()
 end
 
 function loop_walk()
-    while wait() do
+    while wait(0.1) do
         if options["loop_walk"] > 0 then
             game:GetService("Players").LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").WalkSpeed =
                 options["loop_walk"]
