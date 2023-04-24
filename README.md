@@ -1,7 +1,7 @@
 # Vulnerable Point Script
 
 ```lua
-local enabled = {
+enabled = {
     infinite_ammo = true,
     player_esp = true,
     npc_esp = true,
