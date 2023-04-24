@@ -17,13 +17,13 @@ function routine_1()
 end
 
 function routine_2()
-    local Players = workspace.Level.Players
+    local Players = game:GetService("Players")
     local highlight = Instance.new("Highlight")
     highlight.Name = "Highlight"
     highlight.FillColor = Color3.fromRGB(85, 255, 255)
     highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
 
-    for i, v in pairs(Players:GetChildren()) do
+    for i, v in pairs(Players:GetPlayers()) do
         repeat
             wait()
         until v:FindFirstChild("Character") ~= nil
@@ -38,7 +38,7 @@ function routine_2()
         end
     end
 
-    Players.ChildAdded:Connect(
+    Players.PlayerAdded:Connect(
         function(player)
             repeat
                 wait()
@@ -55,7 +55,7 @@ function routine_2()
         end
     )
 
-    Players.ChildRemoved:Connect(
+    Players.PlayerRemoving:Connect(
         function(playerRemoved)
             if
                 playerRemoved:FindFirstChild("Character") ~= nil and
