@@ -150,9 +150,9 @@ end
 
 function loop_walk()
     while wait() do
-        if enabled["routine_4"] > 0 then
+        if enabled["loop_walk"] > 0 then
             game:GetService("Players").LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").WalkSpeed =
-                enabled["routine_4"]
+                enabled["loop_walk"]
         end
     end
 end
