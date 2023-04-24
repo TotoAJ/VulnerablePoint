@@ -157,7 +157,7 @@ function loop_walk()
     end
 end
 
-for i, v in pairs(enabled) do
+for i, v in pairs(options) do
     if v then
         loadstring("pcall(coroutine.wrap(" .. i .. "))")()
     end
