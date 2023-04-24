@@ -8,5 +8,5 @@ local enabled = {
     loop_walk = 25 -- Set to 0 for false
 }
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/TotoAJ/VulnerablePoint/main/script", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TotoAJ/VulnerablePoint/main/script.lua", true))()
 ```
