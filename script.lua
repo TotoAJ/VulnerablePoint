@@ -10,7 +10,7 @@ local enabled = {
 function routine_1()
     while wait(1) do
         for i, v in pairs(game.Players.LocalPlayer.Status.Ammo:GetChildren()) do
-            if v.Cap.Value = 0 then v.Cap.Value = 8 end
+            if v.Cap.Value == 0 then v.Cap.Value = 8 end
             v.Value = v.Cap.Value
         end
     end
