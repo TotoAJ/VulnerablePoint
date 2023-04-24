@@ -89,24 +89,19 @@ end
 
 function loop_walk()
     while wait(0.1) do
-        if enabled["loop_walk"] > 0 then
-            game:GetService("Players").LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").WalkSpeed =
-                enabled["loop_walk"]
-        end
+        game:GetService("Players").LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").WalkSpeed =
+            enabled["loop_walk"]
     end
 end
 
 if enabled["infinite_ammo"] then
-    print("pcall(coroutine.wrap(infinite_ammo))")
     pcall(coroutine.wrap(infinite_ammo))
 end
 
 if enabled["npc_esp"] then
-    print("pcall(coroutine.wrap(npc_esp))")
     pcall(coroutine.wrap(npc_esp))
 end
 
 if enabled["loop_walk"] > 0 then
-    print("pcall(coroutine.wrap(loop_walk))")
     pcall(coroutine.wrap(loop_walk))
 end
