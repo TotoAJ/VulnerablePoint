@@ -1,6 +1,12 @@
-# ROBLOX Exploiting Scripts
-Roblox exploiting scripts.
- 
-Use an executor such as Synapse X ($20 USD) or KRNL (Free).
- 
-Otherwise you won't be able to use these scripts. 
+# Vulnerable Point Script
+
+```lua
+local enabled = {
+    infinite_ammo = true,
+    player_esp = true,
+    npc_esp = true,
+    loop_walk = 25 -- Set to 0 for false
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TotoAJ/VulnerablePoint/main/script", true))()
+```
