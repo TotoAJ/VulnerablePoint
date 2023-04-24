@@ -1,12 +1,5 @@
 -- Made by TotoAJ
 
-local enabled = {
-    infinite_ammo = true, -- Infinite Ammo
-    player_esp = true, -- Player ESP
-    npc_esp = true, -- NPC ESP
-    loop_walk = 25 -- LoopWalk (Set to 0 for false)
-}
-
 function infinite_ammo()
     while wait(1) do
         for i, v in pairs(game.Players.LocalPlayer.Status.Ammo:GetChildren()) do
