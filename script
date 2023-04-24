@@ -1,6 +1,13 @@
 -- Made by TotoAJ
 
-function infinite_ammo()
+local enabled = {
+    routine_1 = true, -- Infinite Ammo
+    routine_2 = true, -- Player ESP
+    routine_3 = true, -- NPC ESP
+    routine_4 = 25 -- LoopWalk (Set to 0 for false)
+}
+
+function routine_1()
     while wait(1) do
         for i, v in pairs(game.Players.LocalPlayer.Status.Ammo:GetChildren()) do
             v.Value = v.Cap.Value
@@ -8,7 +15,7 @@ function infinite_ammo()
     end
 end
 
-function player_esp()
+function routine_2()
     local Players = workspace.Level.Players
     local highlight = Instance.new("Highlight")
     highlight.Name = "Highlight"
@@ -78,7 +85,7 @@ function player_esp()
     end
 end
 
-function npc_esp()
+function routine_3()
     local Actors = workspace.Level.Actors
     local highlight = Instance.new("Highlight")
     highlight.Name = "Highlight"
@@ -148,16 +155,16 @@ function npc_esp()
     end
 end
 
-function loop_walk()
+function routine_4()
     while wait() do
-        if options["loop_walk"] > 0 then
+        if enabled["routine_4"] > 0 then
             game:GetService("Players").LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").WalkSpeed =
-                options["loop_walk"]
+                enabled["routine_4"]
         end
     end
 end
 
-for i, v in pairs(options) do
+for i, v in pairs(enabled) do
     if v then
         loadstring("pcall(coroutine.wrap(" .. i .. "))")()
     end
