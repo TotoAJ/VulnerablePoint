@@ -89,7 +89,7 @@ end
 
 function loop_walk()
     while wait(0.1) do
-        game:GetService("Players").LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").WalkSpeed =
+        game:GetService("Players").LocalPlayer:FindFirstChild("Character"):FindFirstChild("Humanoid").WalkSpeed =
             enabled["loop_walk"]
     end
 end
