@@ -10,7 +10,7 @@ function infinite_ammo()
     while wait(1) do
         for i, v in pairs(game.Players.LocalPlayer.Status.Ammo:GetChildren()) do
             if v.Cap.Value == 0 then
-                v.Cap.Value = 8
+                v.Cap.Value = 10
             end
             v.Value = v.Cap.Value
         end
